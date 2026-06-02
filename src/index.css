@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Barlow+Condensed:wght@700;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-deep-blue:    #0070c0;
+  --color-tiffany:      #56ecbe;
+  --color-pure-white:   #FFFFFF;
+  --color-graphite:     #595959;
+  --color-light-blue:   #92cddc;
+
+  --color-deep-blue-900: #004d85;
+  --color-deep-blue-800: #0070c0;
+  --color-deep-blue-700: #1a8fd1;
+  --color-tiffany-400:   #7ef2ce;
+  --color-tiffany-600:   #30c99e;
+  --color-graphite-700:  #3a3a3a;
+  --color-graphite-500:  #595959;
+  --color-graphite-300:  #8a8a8a;
+  --color-graphite-100:  #f2f2f2;
+
+  --font-sans:      'Inter', system-ui, sans-serif;
+  --font-display:   'Barlow Condensed', 'Inter', sans-serif;
+
+  --shadow-glow-tiffany: 0 0 40px rgba(86, 236, 190, 0.35);
+  --shadow-card:         0 4px 24px rgba(0, 112, 192, 0.14);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: var(--color-pure-white);
+  color: var(--color-graphite);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+#root {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
