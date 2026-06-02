@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { NAV_LINKS, EVENT_INFO } from '../../constants/eventData';
+import { NAV_LINKS } from '../../constants/eventData';
 import type { NavLink } from '../../types/event';
 import logoImg from '../../assets/Logo.png';
 

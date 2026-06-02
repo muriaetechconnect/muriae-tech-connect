@@ -1,5 +1,5 @@
 import React from 'react';
-import { LuBuilding2, LuHandshake, LuLightbulb, LuAward } from 'react-icons/lu';
+import { LuHandshake, LuLightbulb, LuAward } from 'react-icons/lu';
 
 import logoPrefeitura from '../../assets/parceiros/logo_prefeitura-nova.png';
 import logoFaminas from '../../assets/parceiros/LogoFaminas.png';
