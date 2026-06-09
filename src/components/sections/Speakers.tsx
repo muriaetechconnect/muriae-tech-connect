@@ -128,13 +128,24 @@ const SpeakerCard: React.FC<SpeakerCardProps> = ({ speaker, index }) => {
           {speaker.role}
         </p>
         {speaker.org && (
-          <span className="inline-block mt-2 px-3 py-0.5 rounded-full text-[10px] font-semibold tracking-wide bg-[var(--color-deep-blue-800)]/8 text-[var(--color-deep-blue-800)]">
-            {speaker.org}
-          </span>
+          speaker.orgUrl ? (
+            <a 
+              href={speaker.orgUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-2 px-3 py-0.5 rounded-full text-[10px] font-semibold tracking-wide bg-[var(--color-deep-blue-800)]/8 text-[var(--color-deep-blue-800)] hover:bg-[var(--color-deep-blue-800)]/20 hover:text-[var(--color-deep-blue-900)] transition-colors"
+            >
+              {speaker.org}
+            </a>
+          ) : (
+            <span className="inline-block mt-2 px-3 py-0.5 rounded-full text-[10px] font-semibold tracking-wide bg-[var(--color-deep-blue-800)]/8 text-[var(--color-deep-blue-800)]">
+              {speaker.org}
+            </span>
+          )
         )}
 
         {speaker.bio && (
-          <p className="mt-3 text-xs text-[var(--color-graphite-500)] leading-relaxed">
+          <p className="mt-3 text-xs text-[var(--color-graphite-500)] leading-relaxed text-center">
             {speaker.bio}
           </p>
         )}

@@ -1,5 +1,6 @@
 import { LuMapPin, LuCalendarDays, LuClock, LuNavigation } from 'react-icons/lu';
 import { EVENT_INFO } from '../../constants/eventData';
+import photoFaminas from '../../assets/Faminas.jpeg';
 
 const Location: React.FC = () => {
 
@@ -38,6 +39,14 @@ const Location: React.FC = () => {
             O evento acontece em um espaço nobre, preparado para receber líderes, pesquisadores
             e empreendedores de toda a região.
           </p>
+        </div>
+
+        <div className="w-full h-[300px] md:h-[450px] rounded-3xl overflow-hidden shadow-[var(--shadow-card)] border border-white/60 ring-1 ring-[var(--color-deep-blue-800)]/10 mb-12 bg-white">
+          <img 
+            src={photoFaminas} 
+            alt="Centro Universitário Faminas" 
+            className="w-full h-full object-cover object-center"
+          />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-stretch">

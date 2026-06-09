@@ -10,6 +10,8 @@ import photoSergio     from '../assets/palestrantes/Sérgio_Gomes_da_Silva.jpg';
 import photoMarcos     from '../assets/palestrantes/Dr. Marcos Guarino.jpg';
 import photoAnna       from '../assets/palestrantes/Anna_Elise_Martins.jpg';
 import photoCezar      from '../assets/palestrantes/Cézar_Bianchi_Botaro.jpg';
+import photoBraulio    from '../assets/palestrantes/braulio_vieira.jpg';
+import photoLeandro    from '../assets/palestrantes/Leandro.jpg';
 
 export const NAV_LINKS: NavLink[] = [
   { label: 'Sobre',        href: '#sobre'        },
@@ -114,9 +116,9 @@ export const SCHEDULE_ITEMS: ScheduleItem[] = [
     ],
     speakers: [
       {
-        name: 'Dr. Leonardo Frossard',
-        role: 'Dr. em Propriedade Intelectual',
-        org:  'PARTEC JF',
+        name: 'Leonardo Bertholdo de Assis',
+        role: 'Diretor de Ensino',
+        org:  'IF Sudeste',
       },
     ],
   },
@@ -134,7 +136,7 @@ export const SCHEDULE_ITEMS: ScheduleItem[] = [
     speakers: [
       { name: 'Dr. Sérgio Gomes',        role: 'Representante', org: 'Fundação Cristiano Varela' },
       { name: 'Dr. Alexandre Bittencourt', role: 'Representante', org: 'Faminas'                },
-      { name: 'Dr. Leonardo Bertholdo',  role: 'Representante', org: 'IF Sudeste'               },
+      { name: 'Dr. Leonardo Frossard',   role: 'Representante', org: 'PARTEC JF'                },
     ],
   },
 
@@ -185,7 +187,6 @@ export const FEATURED_SPEAKERS: SpeakerProfile[] = [
     role:    'Prefeito Municipal',
     org:     'Prefeitura de Muriaé',
     session: 'Abertura Institucional',
-    bio:     'Liderando iniciativas de modernização e fomento à inovação tecnológica na gestão pública de Muriaé.',
     photoUrl: photoMarcos,
   },
   {
@@ -193,7 +194,6 @@ export const FEATURED_SPEAKERS: SpeakerProfile[] = [
     role:    'Secretário de Desenvolvimento Econômico e Inovação Social',
     org:     'SDEIS — Muriaé',
     session: 'Abertura Institucional',
-    bio:     'Responsável pela Secretaria de Desenvolvimento Econômico e Inovação Social do município.',
     photoUrl: photoCezar,
   },
   {
@@ -201,23 +201,21 @@ export const FEATURED_SPEAKERS: SpeakerProfile[] = [
     role:    'Secretário Adjunto de Desenvolvimento Econômico e Inovação Social',
     org:     'SDEIS — Muriaé',
     session: 'Abertura Institucional',
-    bio:     'Coordena as ações de desenvolvimento econômico e inovação em parceria com a SDEIS.',
+    photoUrl: photoLeandro,
   },
   {
     name:    'Doutoranda Anna Elisa Martins',
     role:    'Gestora do Núcleo de Inovação e Tecnologia',
     org:     'Prefeitura Municipal de Muriaé',
     session: 'Abertura Institucional',
-    bio:     'Doutoranda com atuação na estratégia de inovação e tecnologia da gestão pública municipal.',
     photoUrl: photoAnna,
   },
 
   {
     name:    'Dr. Leonardo Miranda Frossard',
-    role:    'Dr. em Propriedade Intelectual e Inovação',
+    role:    'Coordenador',
     org:     'PARTEC JF — Parque Tecnológico da UFJF',
-    session: 'Palestra Magna',
-    bio:     'Economista, Mestre em Propriedade Intelectual e Transferência de Tecnologia para Inovação (UFRJ) e Doutor em Propriedade Intelectual e Inovação (INPI). Com 18 anos de experiência na coordenação de ambientes promotores de inovação, tem atuado em pesquisas sobre Ecossistemas de Inovação e Startup Communities. Especialista em Gestão da Inovação, Transferência de Tecnologia, Empreendedorismo e Gestão de Incubadoras e Parques Tecnológicos. Atualmente coordena o PARTEC JF — Parque Tecnológico da UFJF.',
+    session: 'Painel — Pesquisa, Educação e Inovação',
     photoUrl: photoFrossard,
   },
 
@@ -225,24 +223,24 @@ export const FEATURED_SPEAKERS: SpeakerProfile[] = [
     name:    'Dr. Sérgio Gomes da Silva',
     role:    'Coordenador de PDI',
     org:     'Hospital do Câncer de Muriaé — FCV',
+    orgUrl:  'https://fcv.org.br/',
     session: 'Painel — Pesquisa, Educação e Inovação',
-    bio:     'Doutor em Neurologia/Neurociência (UNIFESP, 2010), Mestre em Engenharia Biomédica (UMC, 2007) e graduado em Fisioterapia (UNIG, 2004). Realizou pós-doutorado na UNIFESP (2013) e treinamentos internacionais no INMED (França) e na UNC (Argentina), patrocinados pela IBRO. Pesquisador do Instituto do Cérebro do Hospital Israelita Albert Einstein e orientador nos programas de pós-graduação da UNIFESP e UMC. Atualmente é orientador permanente no Programa de Ciências Médicas do IDOR, vice-coordenador da Rede Mineira de Pesquisa Translacional em Oncologia (RMPTO) e Coordenador do Departamento de PDI da FCV. Membro da SBPC, SBNeC e Society for Neuroscience (SfN). Faz colaboração internacional com pesquisadores da Northeastern University e da UCLA. Coordena a Olimpíada de Neurociência de Muriaé, atendendo mais de 300 estudantes ao ano.',
     photoUrl: photoSergio,
   },
   {
-    name:    'Alexandre Horácio Couto Bittencourt',
+    name:    'Dr. Alexandre Horácio Couto Bittencourt',
     role:    'Coordenador de Pesquisa e Internacionalização',
     org:     'Centro Universitário FAMINAS',
+    orgUrl:  'https://www.unifaminas.edu.br/',
     session: 'Painel — Pesquisa, Educação e Inovação',
-    bio:     'Doutor em Ciências Naturais pela UENF. Professor da FAMINAS desde 2004, líder do NECITECS e pesquisador associado da Rede CpE. Especialista em inovação pedagógica e tecnologias educacionais.',
     photoUrl: photoAlexandre,
   },
   {
     name:    'Leonardo Bertholdo de Assis',
     role:    'Diretor de Ensino',
     org:     'IF Sudeste MG — Campus Muriaé',
-    session: 'Painel — Pesquisa, Educação e Inovação',
-    bio:     'Mestre em Educação Matemática pela UFJF. Professor e Diretor de Ensino do IF Sudeste MG, Campus Muriaé, desde 2021.',
+    orgUrl:  'https://www.ifsudestemg.edu.br/muriae',
+    session: 'Palestra Magna',
     photoUrl: photoBertholdo,
   },
 
@@ -250,30 +248,31 @@ export const FEATURED_SPEAKERS: SpeakerProfile[] = [
     name:    'Eliton Luiz de Assis',
     role:    'Consultor Empresarial',
     org:     'Core Consultoria e Inteligência',
+    orgUrl:  'https://www.corebi.com.br/',
     session: 'Painel — Cases de Sucesso Social',
-    bio:     'Especialista em análise de dados e Business Intelligence voltado ao segmento industrial. Sócio das empresas Cicluss Consultores e Core Consultoria e Inteligência.',
     photoUrl: photoEliton,
   },
   {
     name:    'Braulio Vieira',
     role:    'Representante',
     org:     'Rubeus',
+    orgUrl:  'https://rubeus.com.br/',
     session: 'Painel — Cases de Sucesso Social',
-    bio:     'Compartilhando experiências de inovação no setor educacional com a plataforma Rubeus.',
+    photoUrl: photoBraulio,
   },
   {
     name:    'Fábio',
     role:    'Representante',
     org:     'Arvensis',
+    orgUrl:  'https://arvensiscosmeticos.com.br/',
     session: 'Painel — Cases de Sucesso Social',
-    bio:     'Apresentando soluções inovadoras desenvolvidas pela Arvensis para o mercado regional.',
   },
   {
     name:    'Hícaro Lima Maciel',
     role:    'Superintendente de Inovação Tecnológica',
     org:     'Governo do Estado de Minas Gerais',
+    orgUrl:  'https://www.mg.gov.br/',
     session: 'Palestra Institucional – Governo do Estado',
-    bio:     'Engenheiro de Produção pela UFMG (2022). Lidera a estratégia de inovação tecnológica do Governo de Minas Gerais, conectando políticas públicas e ecossistemas de inovação.',
     photoUrl: photoHicaro,
   },
 ];

@@ -9,6 +9,7 @@ export interface Speaker {
   name: string;
   role?: string;
   org?: string;
+  orgUrl?: string;
 }
 
 export interface SpeakerProfile extends Speaker {
