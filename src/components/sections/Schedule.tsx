@@ -237,12 +237,13 @@ interface SpeakerChipProps {
 
 const SpeakerChip: React.FC<SpeakerChipProps> = ({ speaker }) => {
   
-  const profile = FEATURED_SPEAKERS.find((p) =>
-    p.name.toLowerCase().includes(speaker.name.toLowerCase()) ||
-    speaker.name.toLowerCase().includes(
-      p.name.replace(/^(Dr\.|Dra\.|Prof\.)\s*/i, '').toLowerCase().split(' ')[0]
-    )
-  );
+  const profile = FEATURED_SPEAKERS.find((p) => {
+    const nomeCompleto = p.name.toLowerCase();
+    const nomeCronograma = speaker.name.toLowerCase();
+    
+    const palavras = nomeCronograma.split(' ');
+    return palavras.every(palavra => nomeCompleto.includes(palavra));
+  });
   const photoUrl = profile?.photoUrl;
 
   const initials = speaker.name

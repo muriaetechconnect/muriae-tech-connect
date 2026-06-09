@@ -116,9 +116,9 @@ export const SCHEDULE_ITEMS: ScheduleItem[] = [
     ],
     speakers: [
       {
-        name: 'Leonardo Bertholdo de Assis',
-        role: 'Diretor de Ensino',
-        org:  'IF Sudeste',
+        name: 'Dr. Leonardo Miranda Frossard',
+        role: 'Doutor em Propriedade Intelectual',
+        org:  'PARTEC JF',
       },
     ],
   },
@@ -136,7 +136,7 @@ export const SCHEDULE_ITEMS: ScheduleItem[] = [
     speakers: [
       { name: 'Dr. Sérgio Gomes',        role: 'Representante', org: 'Fundação Cristiano Varela' },
       { name: 'Dr. Alexandre Bittencourt', role: 'Representante', org: 'Faminas'                },
-      { name: 'Dr. Leonardo Frossard',   role: 'Representante', org: 'PARTEC JF'                },
+      { name: 'Dr. Leonardo Bertholdo de Assis', role: 'Representante', org: 'IF Sudeste'               },
     ],
   },
 
@@ -210,15 +210,21 @@ export const FEATURED_SPEAKERS: SpeakerProfile[] = [
     session: 'Abertura Institucional',
     photoUrl: photoAnna,
   },
-
+  {
+    name:    'Hícaro Lima Maciel',
+    role:    'Superintendente de Inovação Tecnológica',
+    org:     'Governo do Estado de Minas Gerais',
+    orgUrl:  'https://www.mg.gov.br/',
+    session: 'Palestra Institucional – Governo do Estado',
+    photoUrl: photoHicaro,
+  },
   {
     name:    'Dr. Leonardo Miranda Frossard',
-    role:    'Coordenador',
+    role:    'Doutor em Propriedade Intelectual',
     org:     'PARTEC JF — Parque Tecnológico da UFJF',
-    session: 'Painel — Pesquisa, Educação e Inovação',
+    session: 'Palestra Magna',
     photoUrl: photoFrossard,
   },
-
   {
     name:    'Dr. Sérgio Gomes da Silva',
     role:    'Coordenador de PDI',
@@ -236,14 +242,13 @@ export const FEATURED_SPEAKERS: SpeakerProfile[] = [
     photoUrl: photoAlexandre,
   },
   {
-    name:    'Leonardo Bertholdo de Assis',
+    name:    'Dr. Leonardo Bertholdo de Assis',
     role:    'Diretor de Ensino',
     org:     'IF Sudeste MG — Campus Muriaé',
     orgUrl:  'https://www.ifsudestemg.edu.br/muriae',
-    session: 'Palestra Magna',
+    session: 'Painel — Pesquisa, Educação e Inovação',
     photoUrl: photoBertholdo,
   },
-
   {
     name:    'Eliton Luiz de Assis',
     role:    'Consultor Empresarial',
@@ -266,13 +271,5 @@ export const FEATURED_SPEAKERS: SpeakerProfile[] = [
     org:     'Arvensis',
     orgUrl:  'https://arvensiscosmeticos.com.br/',
     session: 'Painel — Cases de Sucesso Social',
-  },
-  {
-    name:    'Hícaro Lima Maciel',
-    role:    'Superintendente de Inovação Tecnológica',
-    org:     'Governo do Estado de Minas Gerais',
-    orgUrl:  'https://www.mg.gov.br/',
-    session: 'Palestra Institucional – Governo do Estado',
-    photoUrl: photoHicaro,
   },
 ];
