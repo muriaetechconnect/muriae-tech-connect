@@ -119,12 +119,12 @@ const SpeakerCard: React.FC<SpeakerCardProps> = ({ speaker, index }) => {
 
       <div className="flex flex-col items-center flex-grow">
         <h3
-          className="text-base font-bold text-[var(--color-graphite-700)] leading-snug"
+          className="text-lg font-bold text-[var(--color-graphite-700)] leading-snug"
           style={{ fontFamily: 'var(--font-display)' }}
         >
           {speaker.name}
         </h3>
-        <p className="text-xs font-semibold text-[var(--color-tiffany-600)] mt-1 leading-snug">
+        <p className="text-sm font-semibold text-[var(--color-tiffany-600)] mt-1.5 leading-snug">
           {speaker.role}
         </p>
         {speaker.org && (
@@ -133,12 +133,12 @@ const SpeakerCard: React.FC<SpeakerCardProps> = ({ speaker, index }) => {
               href={speaker.orgUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block mt-2 px-3 py-0.5 rounded-full text-[10px] font-semibold tracking-wide bg-[var(--color-deep-blue-800)]/8 text-[var(--color-deep-blue-800)] hover:bg-[var(--color-deep-blue-800)]/20 hover:text-[var(--color-deep-blue-900)] transition-colors"
+              className="inline-block mt-2.5 px-3.5 py-1 rounded-full text-xs font-semibold tracking-wide bg-[var(--color-deep-blue-800)]/8 text-[var(--color-deep-blue-800)] hover:bg-[var(--color-deep-blue-800)]/20 hover:text-[var(--color-deep-blue-900)] transition-colors"
             >
               {speaker.org}
             </a>
           ) : (
-            <span className="inline-block mt-2 px-3 py-0.5 rounded-full text-[10px] font-semibold tracking-wide bg-[var(--color-deep-blue-800)]/8 text-[var(--color-deep-blue-800)]">
+            <span className="inline-block mt-2.5 px-3.5 py-1 rounded-full text-xs font-semibold tracking-wide bg-[var(--color-deep-blue-800)]/8 text-[var(--color-deep-blue-800)]">
               {speaker.org}
             </span>
           )
@@ -153,7 +153,7 @@ const SpeakerCard: React.FC<SpeakerCardProps> = ({ speaker, index }) => {
 
       {speaker.session && (
         <div className="mt-4 pt-4 border-t border-[var(--color-graphite-100)] w-full">
-          <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold tracking-wider uppercase text-[var(--color-graphite-300)]">
+          <span className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-wider uppercase text-[var(--color-graphite-300)]">
             <span className="w-1 h-1 rounded-full bg-[var(--color-tiffany-600)]" aria-hidden="true" />
             {speaker.session}
           </span>

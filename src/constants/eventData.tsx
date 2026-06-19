@@ -1,4 +1,4 @@
-import { LuBuilding2, LuZap, LuLink } from 'react-icons/lu';
+﻿import { LuBuilding2, LuZap, LuLink } from 'react-icons/lu';
 import type { NavLink, ScheduleItem, AboutCard, SpeakerProfile } from '../types/event';
 
 import photoAlexandre  from '../assets/palestrantes/Alexandre_Horácio Couto_Bittencourt.jpg';
@@ -130,8 +130,8 @@ export const SCHEDULE_ITEMS: ScheduleItem[] = [
     title:     'Painel – Pesquisa, Educação e Inovação',
     highlights: [
       'Participação de representantes dos Institutos de Ciência e Tecnologia (ICTs)',
-      'Apresentação de projetos de pesquisa aplicada (3 apresentações curtas, de 10 min cada)',
-      'Temas sugeridos: “Tecnologia aplicada ao mercado”, “Empreendedorismo acadêmico”, “Tecnologias em Saúde”',
+      'Apresentação de projetos de pesquisa aplicada',
+      '“Tecnologia aplicada ao mercado”, “Empreendedorismo acadêmico”, “Tecnologias em Saúde”',
     ],
     speakers: [
       { name: 'Dr. Sérgio Gomes',        role: 'Representante', org: 'Fundação Cristiano Varela' },
@@ -147,7 +147,7 @@ export const SCHEDULE_ITEMS: ScheduleItem[] = [
     title:     'Coffee Break & Networking',
     highlights: [
       'Momento estruturado para conexões',
-      'Sugestão: uso de crachás por área de atuação para facilitar interações',
+      'Uso de crachás por área de atuação para facilitar interações',
     ],
   },
 
@@ -175,7 +175,7 @@ export const SCHEDULE_ITEMS: ScheduleItem[] = [
     highlights: [
       'Síntese dos principais pontos do evento',
       'Convite para próximas ações do Circuito',
-      'Registro institucional (foto oficial)',
+      'Registro institucional',
     ],
   },
 ];
