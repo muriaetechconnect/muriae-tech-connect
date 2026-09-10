@@ -1,8 +1,8 @@
-import { SCHEDULE_ITEMS, EVENT_INFO, FEATURED_SPEAKERS } from '../../constants/eventData';
-import type { ScheduleItem, Speaker } from '../../types/event';
+import type { ScheduleItem, Speaker, TechEvent } from '../../types/event';
+import { formatEventDate, formatEventTime, formatScheduleItemTime } from '../../lib/formatDate';
 
 const TYPE_CONFIG: Record<
-  ScheduleItem['type'],
+  ScheduleItem['stage'],
   { label: string; dotBg: string; badgeClass: string; isMain: boolean }
 > = {
   credenciamento: {
@@ -35,7 +35,7 @@ const TYPE_CONFIG: Record<
     badgeClass: 'bg-[var(--color-light-blue)]/20 text-[var(--color-light-blue)] border border-[var(--color-light-blue)]/30',
     isMain:     true,
   },
-  intervalo: {
+  'coffee-break': {
     label:      'Coffee Break',
     dotBg:      'bg-white/20',
     badgeClass: 'bg-white/5 text-white/40 border border-white/10',
@@ -49,7 +49,11 @@ const TYPE_CONFIG: Record<
   },
 };
 
-const Schedule: React.FC = () => {
+interface ScheduleProps {
+  event: TechEvent;
+}
+
+const Schedule: React.FC<ScheduleProps> = ({ event }) => {
   return (
     <section
       id="programacao"
@@ -120,7 +124,7 @@ const Schedule: React.FC = () => {
 
         <div className="text-center mb-16">
           <span className="text-xs font-semibold tracking-widest uppercase text-[var(--color-tiffany)]">
-            {EVENT_INFO.date} · {EVENT_INFO.time}
+            {formatEventDate(event.dateStart, event.dateEnd)} · {formatEventTime(event.dateStart, event.dateEnd)}
           </span>
           <h2
             id="schedule-heading"
@@ -130,7 +134,7 @@ const Schedule: React.FC = () => {
             PROGRAMAÇÃO
           </h2>
           <p className="mt-4 text-base text-white/60 max-w-lg mx-auto leading-relaxed">
-            Um dia completo de conteúdo, conexões e inspiração no {EVENT_INFO.venue}.
+            Um dia completo de conteúdo, conexões e inspiração no {event.location.name}.
           </p>
         </div>
 
@@ -141,8 +145,8 @@ const Schedule: React.FC = () => {
             className="absolute left-[6.5rem] top-4 bottom-4 w-px bg-white/10"
           />
 
-          {SCHEDULE_ITEMS.map((item, i) => (
-            <ScheduleRow key={i} item={item} index={i} />
+          {event.schedule.map((item) => (
+            <ScheduleRow key={item.id} item={item} speakers={event.speakers} />
           ))}
         </ol>
       </div>
@@ -151,27 +155,25 @@ const Schedule: React.FC = () => {
 };
 
 interface ScheduleRowProps {
-  item:  ScheduleItem;
-  index: number;
+  item: ScheduleItem;
+  speakers: Speaker[];
 }
 
-const ScheduleRow: React.FC<ScheduleRowProps> = ({ item }) => {
-  const cfg = TYPE_CONFIG[item.type];
-  const hasSpeakers = item.speakers && item.speakers.length > 0;
+const ScheduleRow: React.FC<ScheduleRowProps> = ({ item, speakers }) => {
+  const cfg = TYPE_CONFIG[item.stage];
+  const itemSpeakers = item.speakerIds?.map((id) => speakers.find((speaker) => speaker.id === id)).filter((speaker): speaker is Speaker => Boolean(speaker)) ?? [];
+  const hasSpeakers = itemSpeakers.length > 0;
 
   return (
     <li className="relative flex items-start gap-0 pb-6 last:pb-0 group">
 
       <div className="flex-none w-28 text-right pr-5 pt-3.5">
         <time
-          dateTime={item.timeStart.replace('h', ':')}
+          dateTime={item.timeStart}
           className="block text-base font-mono font-semibold text-white/60"
         >
-          {item.timeStart}
+          {formatScheduleItemTime(item.timeStart, item.timeEnd)}
         </time>
-        <span className="block text-sm font-mono text-white/30 mt-0.5">
-          {item.timeEnd}
-        </span>
       </div>
 
       <div className="flex-none flex flex-col items-center pt-4 mr-5">
@@ -226,11 +228,11 @@ const ScheduleRow: React.FC<ScheduleRowProps> = ({ item }) => {
           {hasSpeakers && (
             <div className="mt-4 pt-4 border-t border-white/10">
               <p className="text-sm font-semibold tracking-wide text-white/40 uppercase mb-3">
-                {item.speakers!.length === 1 ? 'Palestrante' : 'Palestrantes'}
+                      {itemSpeakers.length === 1 ? 'Palestrante' : 'Palestrantes'}
               </p>
               <ul className="flex flex-col gap-2">
-                {item.speakers!.map((speaker: Speaker, i: number) => (
-                  <SpeakerChip key={i} speaker={speaker} />
+                {itemSpeakers.map((speaker) => (
+                  <SpeakerChip key={speaker.id} speaker={speaker} />
                 ))}
               </ul>
             </div>
@@ -246,15 +248,7 @@ interface SpeakerChipProps {
 }
 
 const SpeakerChip: React.FC<SpeakerChipProps> = ({ speaker }) => {
-  
-  const profile = FEATURED_SPEAKERS.find((p) => {
-    const nomeCompleto = p.name.toLowerCase();
-    const nomeCronograma = speaker.name.toLowerCase();
-    
-    const palavras = nomeCronograma.split(' ');
-    return palavras.every(palavra => nomeCompleto.includes(palavra));
-  });
-  const photoUrl = profile?.photoUrl;
+  const photoUrl = speaker.photoUrl;
 
   const initials = speaker.name
     .split(' ')

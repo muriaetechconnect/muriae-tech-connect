@@ -1,5 +1,4 @@
-import { FEATURED_SPEAKERS } from '../../constants/eventData';
-import type { SpeakerProfile } from '../../types/event';
+import type { Speaker, TechEvent } from '../../types/event';
 
 const AVATAR_GRADIENTS = [
   'from-[var(--color-deep-blue-900)] to-[var(--color-deep-blue-700)]',
@@ -22,9 +21,13 @@ const ACCENT_BORDERS = [
   'border-t-[var(--color-deep-blue-700)]',
 ] as const;
 
-const Speakers: React.FC = () => {
+interface SpeakersProps {
+  event: TechEvent;
+}
+
+const Speakers: React.FC<SpeakersProps> = ({ event }) => {
   return (
-    <section id="palestrantes" className="py-24 px-6 bg-white relative overflow-hidden">
+    <section id="palestrantes" className="py-24 px-6 bg-[var(--color-graphite-100)] relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none" aria-hidden="true">
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-[var(--color-tiffany)]/10 rounded-full blur-3xl" />
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-[var(--color-deep-blue-700)]/5 rounded-full blur-3xl" />
@@ -47,8 +50,13 @@ const Speakers: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {FEATURED_SPEAKERS.map((speaker, index) => (
-            <SpeakerCard key={index} speaker={speaker} index={index} />
+          {event.speakers.map((speaker, index) => (
+            <SpeakerCard
+              key={speaker.id}
+              speaker={speaker}
+              index={index}
+              session={event.schedule.find((item) => item.speakerIds?.includes(speaker.id))?.title}
+            />
           ))}
         </div>
       </div>
@@ -57,11 +65,12 @@ const Speakers: React.FC = () => {
 };
 
 interface SpeakerCardProps {
-  speaker: SpeakerProfile;
-  index:   number;
+  speaker: Speaker;
+  index: number;
+  session?: string;
 }
 
-const SpeakerCard: React.FC<SpeakerCardProps> = ({ speaker, index }) => {
+const SpeakerCard: React.FC<SpeakerCardProps> = ({ speaker, index, session }) => {
   const gradient   = AVATAR_GRADIENTS[index % AVATAR_GRADIENTS.length];
   const textColor  = AVATAR_TEXT[index % AVATAR_TEXT.length];
   const accentBorder = ACCENT_BORDERS[index % ACCENT_BORDERS.length];
@@ -144,18 +153,13 @@ const SpeakerCard: React.FC<SpeakerCardProps> = ({ speaker, index }) => {
           )
         )}
 
-        {speaker.bio && (
-          <p className="mt-3 text-xs text-[var(--color-graphite-500)] leading-relaxed text-center">
-            {speaker.bio}
-          </p>
-        )}
       </div>
 
-      {speaker.session && (
+      {session && (
         <div className="mt-4 pt-4 border-t border-[var(--color-graphite-100)] w-full">
           <span className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-wider uppercase text-[var(--color-graphite-300)]">
             <span className="w-1 h-1 rounded-full bg-[var(--color-tiffany-600)]" aria-hidden="true" />
-            {speaker.session}
+            {session}
           </span>
         </div>
       )}

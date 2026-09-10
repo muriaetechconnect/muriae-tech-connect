@@ -9,8 +9,13 @@ import Schedule   from './components/sections/Schedule';
 import Speakers   from './components/sections/Speakers';
 import Location   from './components/sections/Location';
 import Partners   from './components/sections/Partners';
+import IdleState  from './components/sections/IdleState';
+import { EVENTS } from './data/events';
+import { useCurrentEvent } from './hooks/useCurrentEvent';
 
 function App() {
+  const currentEvent = useCurrentEvent(EVENTS);
+
   return (
     <>
       <a
@@ -25,15 +30,21 @@ function App() {
       <Header />
 
       <main id="conteudo-principal">
-        <HeroBanner />
-        <Schedule />
-        <About />
-        <Speakers />
-        <Location />
-        <Partners />
+        {currentEvent.status === 'idle' ? (
+          <IdleState />
+        ) : (
+          <>
+            <HeroBanner event={currentEvent.event} />
+            <Schedule event={currentEvent.event} />
+            <About event={currentEvent.event} />
+            <Speakers event={currentEvent.event} />
+            <Location event={currentEvent.event} />
+            <Partners />
+          </>
+        )}
       </main>
 
-      <Footer />
+      <Footer event={currentEvent.event ?? undefined} />
     </>
   );
 }

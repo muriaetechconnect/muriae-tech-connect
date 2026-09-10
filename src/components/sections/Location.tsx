@@ -1,14 +1,18 @@
 import { LuMapPin, LuCalendarDays, LuClock, LuNavigation } from 'react-icons/lu';
-import { EVENT_INFO } from '../../constants/eventData';
-import photoFaminas from '../../assets/Faminas.jpeg';
+import type { TechEvent } from '../../types/event';
+import { formatEventDate, formatEventTime } from '../../lib/formatDate';
 
-const Location: React.FC = () => {
+interface LocationProps {
+  event: TechEvent;
+}
+
+const Location: React.FC<LocationProps> = ({ event }) => {
 
   const googleMapsEmbedUrl =
-    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.843!2d-42.3843837!3d-21.1101991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xbcc89fdcdcec67%3A0x4e5c2231cba66644!2sCentro%20Universit%C3%A1rio%20FAMINAS!5e0!3m2!1spt-BR!2sbr!4v1716580000000!5m2!1spt-BR!2sbr';
+    `https://www.google.com/maps?q=${event.location.geo.lat},${event.location.geo.lng}&output=embed`;
 
   const googleMapsDirectionsUrl =
-    'https://www.google.com/maps/dir/?api=1&destination=-21.1102041,-42.3818034&destination_place_id=0xbcc89fdcdcec67%3A0x4e5c2231cba66644';
+    `https://www.google.com/maps/dir/?api=1&destination=${event.location.geo.lat},${event.location.geo.lng}`;
 
   return (
     <section
@@ -43,8 +47,8 @@ const Location: React.FC = () => {
 
         <div className="w-full h-[300px] md:h-[450px] rounded-3xl overflow-hidden shadow-[var(--shadow-card)] border border-white/60 ring-1 ring-[var(--color-deep-blue-800)]/10 mb-12 bg-white">
           <img 
-            src={photoFaminas} 
-            alt="Centro Universitário Faminas" 
+            src={event.location.photoUrl}
+            alt={event.location.name}
             className="w-full h-full object-cover object-center"
           />
         </div>
@@ -62,7 +66,7 @@ const Location: React.FC = () => {
                   className="text-2xl font-black text-[var(--color-deep-blue-800)]"
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
-                  {EVENT_INFO.venue}
+                  {event.location.name}
                 </h3>
               </div>
 
@@ -70,18 +74,17 @@ const Location: React.FC = () => {
                 <InfoRow
                   icon={<LuMapPin size={17} />}
                   label="Endereço"
-                  value={`${EVENT_INFO.city}`}
-                  sub="Av. Cel. Albino Moreira, 53 — Bairro Dr. Simonini"
+                  value={event.location.address}
                 />
                 <InfoRow
                   icon={<LuCalendarDays size={17} />}
                   label="Data"
-                  value={EVENT_INFO.date}
+                  value={formatEventDate(event.dateStart, event.dateEnd)}
                 />
                 <InfoRow
                   icon={<LuClock size={17} />}
                   label="Horário"
-                  value={EVENT_INFO.time}
+                  value={formatEventTime(event.dateStart, event.dateEnd)}
                 />
               </address>
             </div>
@@ -110,14 +113,6 @@ const Location: React.FC = () => {
               Como Chegar
             </a>
 
-            <div className="bg-gradient-to-r from-[var(--color-tiffany)]/20 to-[var(--color-light-blue)]/20 border border-[var(--color-tiffany)]/30 rounded-2xl p-5 text-center">
-              <p className="text-sm font-semibold text-[var(--color-deep-blue-800)] leading-snug">
-                🎓 Evento gratuito e aberto à comunidade
-              </p>
-              <p className="text-xs text-[var(--color-graphite-500)] mt-1">
-                Vagas limitadas — inscrição obrigatória
-              </p>
-            </div>
           </div>
 
           <div className="lg:col-span-3">

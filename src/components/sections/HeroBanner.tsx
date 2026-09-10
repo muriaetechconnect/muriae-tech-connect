@@ -1,8 +1,13 @@
-import { EVENT_INFO } from '../../constants/eventData';
 import { LuCalendar, LuClock, LuMapPin } from 'react-icons/lu';
 import logoHomepage from '../../assets/Backdrop Oficial Muriaé Tech Connect SEM FUNDO.png';
+import type { TechEvent } from '../../types/event';
+import { formatEventDate, formatEventTime } from '../../lib/formatDate';
 
-const HeroBanner: React.FC = () => {
+interface HeroBannerProps {
+  event: TechEvent;
+}
+
+const HeroBanner: React.FC<HeroBannerProps> = ({ event }) => {
   return (
     <section
       id="topo"
@@ -74,7 +79,7 @@ const HeroBanner: React.FC = () => {
 
       <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center gap-6">
 
-        <h1 className="sr-only">{EVENT_INFO.name} — {EVENT_INFO.subtitle}</h1>
+        <h1 className="sr-only">{event.name} — {event.subtitle}</h1>
 
         <img
           src={logoHomepage}
@@ -86,11 +91,11 @@ const HeroBanner: React.FC = () => {
         <div className="w-16 h-0.5 bg-gradient-to-r from-[var(--color-deep-blue-800)] to-[var(--color-tiffany)] rounded-full" />
 
         <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8">
-          <InfoBadge icon={<LuCalendar />} label={EVENT_INFO.date} />
+          <InfoBadge icon={<LuCalendar />} label={formatEventDate(event.dateStart, event.dateEnd)} />
           <div className="hidden sm:block h-6 w-px bg-[var(--color-graphite-300)]/50" aria-hidden="true" />
-          <InfoBadge icon={<LuClock />} label={EVENT_INFO.time} />
+          <InfoBadge icon={<LuClock />} label={formatEventTime(event.dateStart, event.dateEnd)} />
           <div className="hidden sm:block h-6 w-px bg-[var(--color-graphite-300)]/50" aria-hidden="true" />
-          <InfoBadge icon={<LuMapPin />} label={EVENT_INFO.venue} />
+          <InfoBadge icon={<LuMapPin />} label={event.location.name} />
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 mt-2">

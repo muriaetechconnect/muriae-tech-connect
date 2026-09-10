@@ -1,37 +1,79 @@
-import type { ReactNode } from 'react';
+export type EventNiche = 'lab' | 'educacao' | 'para-elas' | 'saude' | 'start';
 
-export interface NavLink {
-  label: string;
-  href: string;
+export const NICHE_LABELS: Record<EventNiche, string> = {
+  lab: 'Lab',
+  educacao: 'Educação',
+  'para-elas': 'Para Elas',
+  saude: 'Saúde',
+  start: 'Start',
+};
+
+export type ScheduleStage =
+  | 'credenciamento'
+  | 'abertura'
+  | 'palestra'
+  | 'painel'
+  | 'case'
+  | 'coffee-break'
+  | 'encerramento';
+
+export const STAGE_LABELS: Record<ScheduleStage, string> = {
+  credenciamento: 'Credenciamento',
+  abertura: 'Abertura',
+  palestra: 'Palestra',
+  painel: 'Painel/Cases',
+  case: 'Painel/Cases',
+  'coffee-break': 'Coffee Break',
+  encerramento: 'Encerramento',
+};
+
+export interface GeoPoint {
+  lat: number;
+  lng: number;
+}
+
+export interface EventLocation {
+  name: string;
+  address: string;
+  geo: GeoPoint;
+  photoUrl: string;
 }
 
 export interface Speaker {
+  id: string;
   name: string;
-  role?: string;
-  org?: string;
+  role: string;
+  org: string;
   orgUrl?: string;
-}
-
-export interface SpeakerProfile extends Speaker {
-  bio?:         string;
-  session?:     string;
-  photoUrl?:    string;
-  linkedinUrl?: string;
+  photoUrl?: string;
 }
 
 export interface ScheduleItem {
-  timeStart:    string;
-  timeEnd:      string;
-  title:        string;
-  type:         'credenciamento' | 'abertura' | 'palestra' | 'painel' | 'case' | 'intervalo' | 'encerramento';
-  objective?:   string;
-  speakers?:    Speaker[];
-  highlights?:  string[];   
+  id: string;
+  stage: ScheduleStage;
+  title: string;
+  timeStart: string;
+  timeEnd: string;
+  highlights?: string[];
+  speakerIds?: string[];
 }
 
-export interface AboutCard {
-  term:        string;
-  subtitle:    string;
-  description: string;
-  icon:        ReactNode;
+export interface TechEvent {
+  id: string;
+  slug: string;
+  name: string;
+  subtitle?: string;
+  niche: EventNiche;
+  dateStart: string;
+  dateEnd: string;
+  location: EventLocation;
+  schedule: ScheduleItem[];
+  speakers: Speaker[];
+  status: 'draft' | 'published';
 }
+
+export type EventLifecycle = 'live' | 'upcoming' | 'past' | 'idle';
+
+export type ResolvedEvent =
+  | { status: Exclude<EventLifecycle, 'idle'>; event: TechEvent }
+  | { status: 'idle'; event: null };

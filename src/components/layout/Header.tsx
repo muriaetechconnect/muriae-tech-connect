@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import { NAV_LINKS } from '../../constants/eventData';
-import type { NavLink } from '../../types/event';
+import { NAV_LINKS } from '../../data/events';
 import logoImg from '../../assets/Logo.png';
 
 const Header: React.FC = () => {
@@ -36,7 +35,7 @@ const Header: React.FC = () => {
         </a>
 
         <nav aria-label="Navegação principal" className="hidden md:flex items-center gap-8">
-          {NAV_LINKS.map((link: NavLink) => (
+          {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
@@ -88,7 +87,7 @@ const Header: React.FC = () => {
           aria-label="Menu mobile"
           className="md:hidden bg-[var(--color-deep-blue-900)] border-t border-white/10 px-6 py-4 flex flex-col gap-4"
         >
-          {NAV_LINKS.map((link: NavLink) => (
+          {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}

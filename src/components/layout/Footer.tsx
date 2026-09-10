@@ -1,7 +1,13 @@
-import { NAV_LINKS, EVENT_INFO } from '../../constants/eventData';
-import { LuMapPin } from 'react-icons/lu';
+import { NAV_LINKS } from '../../data/events';
+import type { TechEvent } from '../../types/event';
+import { LuInstagram, LuMapPin } from 'react-icons/lu';
+import { formatEventDate, formatEventTime } from '../../lib/formatDate';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  event?: TechEvent;
+}
+
+const Footer: React.FC<FooterProps> = ({ event }) => {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -25,12 +31,20 @@ const Footer: React.FC = () => {
             <p className="text-xs font-light tracking-[0.25em] text-white/50 uppercase mt-0.5">
               CONNECT
             </p>
-            <p className="mt-4 text-sm text-white/60 leading-relaxed max-w-xs">
-              {EVENT_INFO.subtitle}. {EVENT_INFO.date}, {EVENT_INFO.time}.
-            </p>
-            <p className="mt-1 text-sm text-[var(--color-tiffany)] font-medium flex items-center gap-1">
-              <LuMapPin className="flex-none" /> {EVENT_INFO.venue} — {EVENT_INFO.city}
-            </p>
+            {event ? (
+              <>
+                <p className="mt-4 text-sm text-white/60 leading-relaxed max-w-xs">
+                  {event.subtitle}. {formatEventDate(event.dateStart, event.dateEnd)}, {formatEventTime(event.dateStart, event.dateEnd)}.
+                </p>
+                <p className="mt-1 text-sm text-[var(--color-tiffany)] font-medium flex items-center gap-1">
+                  <LuMapPin className="flex-none" /> {event.location.name} — {event.location.address}
+                </p>
+              </>
+            ) : (
+              <p className="mt-4 text-sm text-white/60 leading-relaxed max-w-xs">
+                Acompanhe o Muriaé Tech Connect para não perder os próximos encontros.
+              </p>
+            )}
           </div>
 
           <nav aria-label="Navegação do rodapé">
@@ -67,6 +81,16 @@ const Footer: React.FC = () => {
                 </p>
               </li>
             </ul>
+            <a
+              href="https://www.instagram.com/muriaetechconnect?stkn=Zjl6aTc3OWx3NWk="
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram do Muriaé Tech Connect"
+              title="Instagram do Muriaé Tech Connect"
+              className="mt-5 inline-flex text-[var(--color-tiffany)] hover:text-white transition-colors"
+            >
+              <LuInstagram size={22} aria-hidden="true" />
+            </a>
           </div>
         </div>
       </div>

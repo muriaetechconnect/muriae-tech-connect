@@ -59,5 +59,14 @@ npm run dev
 npm run build
 npm run preview
 npm run lint
+npm run test
 ```
+
+## Editor local de eventos
+
+Em desenvolvimento, acesse `/admin` para editar os eventos. O formulário valida
+os dados com Zod e envia o conteúdo para o middleware `admin-events-writer` do
+Vite, que grava o TypeScript formatado diretamente em `src/data/events.ts`.
+Esse plugin e a rota `/admin` só são ativados com `import.meta.env.DEV`; não há
+editor administrativo nem endpoint de escrita no build de produção.
 
