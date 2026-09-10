@@ -1,6 +1,21 @@
 import { createElement } from 'react';
 import { LuBuilding2, LuLink, LuZap } from 'react-icons/lu';
 import type { TechEvent } from '../types/event';
+import locationPhoto from '../assets/Faminas.jpeg';
+import annaElisaPhoto from '../assets/palestrantes/Anna_Elise_Martins.jpg';
+import bryanPhoto from '../assets/palestrantes/bryan.jpg';
+import cezarPhoto from '../assets/palestrantes/Cézar_Bianchi_Botaro.jpg';
+import flaviaPhoto from '../assets/palestrantes/flaviaFerrari.jpg';
+import flavioPhoto from '../assets/palestrantes/flavioMotta.jpg';
+import franciscoPhoto from '../assets/palestrantes/francisco.jpg';
+import gabrielPhoto from '../assets/palestrantes/GabrielAssis.jpg';
+import guilhermePhoto from '../assets/palestrantes/GuilhermeRissom.jpg';
+import isaacPhoto from '../assets/palestrantes/IsaacCarvalho.jpg';
+import leandroPhoto from '../assets/palestrantes/Leandro.jpg';
+import luanPhoto from '../assets/palestrantes/luan.jpg';
+import marcosPhoto from '../assets/palestrantes/Dr. Marcos Guarino.jpg';
+import ryanPhoto from '../assets/palestrantes/ryan.jpg';
+import victorPhoto from '../assets/palestrantes/victor.jpg';
 
 export const NAV_LINKS = [
   { label: 'Sobre', href: '#sobre' },
@@ -47,7 +62,7 @@ export const EVENTS: TechEvent[] = [
         "lat": -21.1101991,
         "lng": -42.3843837
       },
-      "photoUrl": "/src/assets/Faminas.jpeg"
+      "photoUrl": locationPhoto
     },
     "schedule": [
       {
@@ -146,63 +161,63 @@ export const EVENTS: TechEvent[] = [
         "name": "Dr. Marcos Guarino",
         "role": "Prefeito Municipal",
         "org": "Prefeitura de Muriaé",
-        "photoUrl": "/src/assets/palestrantes/Dr.%20Marcos%20Guarino.jpg"
+        "photoUrl": marcosPhoto
       },
       {
         "id": "cezar-bianchi",
         "name": "Cézar Bianchi Botaro",
         "role": "Secretário de Desenvolvimento Econômico e Inovação Social",
         "org": "SDEIS — Muriaé",
-        "photoUrl": "/src/assets/palestrantes/C%C3%A9zar_Bianchi_Botaro.jpg"
+        "photoUrl": cezarPhoto
       },
       {
         "id": "leandro-latini",
         "name": "Leandro Latini Veiga",
         "role": "Secretário Adjunto de Desenvolvimento Econômico e Inovação Social",
         "org": "SDEIS — Muriaé",
-        "photoUrl": "/src/assets/palestrantes/Leandro.jpg"
+        "photoUrl": leandroPhoto
       },
       {
         "id": "anna-elisa",
         "name": "Doutoranda Anna Elisa Martins",
         "role": "Gestora do Núcleo de Inovação e Tecnologia",
         "org": "Prefeitura Municipal de Muriaé",
-        "photoUrl": "/src/assets/palestrantes/Anna_Elise_Martins.jpg"
+        "photoUrl": annaElisaPhoto
       },
       {
         "id": "guilherme",
         "name": "Guilherme Rissom",
         "role": "Criador do GymTrack",
         "org": "GymTrack",
-        "photoUrl": "/src/assets/palestrantes/GuilhermeRissom.jpg"
+        "photoUrl": guilhermePhoto
       },
       {
         "id": "gabriel-assis",
         "name": "Gabriel Assis",
         "role": "Criador do GymTrack",
         "org": "GymTrack",
-        "photoUrl": "/src/assets/palestrantes/GabrielAssis.jpg"
+        "photoUrl": gabrielPhoto
       },
       {
         "id": "flavia-ferrari",
         "name": "Flávia Ferrari",
         "role": "Fundadora da Severus Tech",
         "org": "Severus Tech",
-        "photoUrl": "/src/assets/palestrantes/flaviaFerrari.jpg"
+        "photoUrl": flaviaPhoto
       },
       {
         "id": "flavio",
         "name": "Flávio Motta",
         "role": "Coordenador do curso de Análise e Desenvolvimento de Sistemas e Coordenador de Inteligência de Dados",
         "org": "FAMINAS",
-        "photoUrl": "/src/assets/palestrantes/flavioMotta.jpg"
+        "photoUrl": flavioPhoto
       },
       {
         "id": "isaac",
         "name": "Isaac Carvalho",
         "role": "Sócio-fundador da APG GOV",
         "org": "APG GOV",
-        "photoUrl": "/src/assets/palestrantes/IsaacCarvalho.jpg"
+        "photoUrl": isaacPhoto
       },
       {
         "id": "victor",
@@ -210,7 +225,7 @@ export const EVENTS: TechEvent[] = [
         "role": "Desenvolvedor FullStack",
         "org": "Drivou",
         "orgUrl": "https://drivou.com/",
-        "photoUrl": "/src/assets/palestrantes/victor.jpg"
+        "photoUrl": victorPhoto
       },
       {
         "id": "luan",
@@ -218,7 +233,7 @@ export const EVENTS: TechEvent[] = [
         "role": "Desenvolvedor FullStack",
         "org": "Drivou",
         "orgUrl": "https://drivou.com/",
-        "photoUrl": "/src/assets/palestrantes/luan.jpg"
+        "photoUrl": luanPhoto
       },
       {
         "id": "ryan",
@@ -226,7 +241,7 @@ export const EVENTS: TechEvent[] = [
         "role": "Gerente de Projeto",
         "org": "Drivou",
         "orgUrl": "https://drivou.com/",
-        "photoUrl": "/src/assets/palestrantes/ryan.jpg"
+        "photoUrl": ryanPhoto
       },
       {
         "id": "francisco",
@@ -234,7 +249,7 @@ export const EVENTS: TechEvent[] = [
         "role": "Gerente de Desenvolvimento",
         "org": "Drivou",
         "orgUrl": "https://drivou.com/",
-        "photoUrl": "/src/assets/palestrantes/francisco.jpg"
+        "photoUrl": franciscoPhoto
       },
       {
         "id": "bryan",
@@ -242,7 +257,7 @@ export const EVENTS: TechEvent[] = [
         "role": "Analista de Produto",
         "org": "Drivou",
         "orgUrl": "https://drivou.com/",
-        "photoUrl": "/src/assets/palestrantes/bryan.jpg"
+        "photoUrl": bryanPhoto
       }
     ],
     "status": "published"

@@ -1,13 +1,19 @@
 import type { EventNiche, TechEvent } from '../types/event';
+import baseLogo from '../assets/Backdrop Oficial Muriaé Tech Connect SEM FUNDO.png';
+import educacaoLogo from '../assets/logosTech/educacaoLogo.png';
+import labLogo from '../assets/logosTech/labLogo.png';
+import paraElasLogo from '../assets/logosTech/paraElasLogo.png';
+import saudeLogo from '../assets/logosTech/saudeLogo.png';
+import startLogo from '../assets/logosTech/startLogo.png';
 
-const BASE_LOGO = '/src/assets/Backdrop Oficial Muriaé Tech Connect SEM FUNDO.png';
+const BASE_LOGO = baseLogo;
 
 const LOGO_BY_NICHE: Record<EventNiche, string> = {
-  lab: BASE_LOGO,
-  educacao: '/src/assets/logosTech/educacaoLogo.png',
-  'para-elas': '/src/assets/logosTech/paraElasLogo.png',
-  saude: '/src/assets/logosTech/saudeLogo.png',
-  start: '/src/assets/logosTech/startLogo.png',
+  lab: labLogo,
+  educacao: educacaoLogo,
+  'para-elas': paraElasLogo,
+  saude: saudeLogo,
+  start: startLogo,
 };
 
 export function getAboutPresentation(event: Pick<TechEvent, 'niche' | 'name' | 'subtitle'>) {
