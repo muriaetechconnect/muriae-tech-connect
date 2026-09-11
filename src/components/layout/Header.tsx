@@ -50,7 +50,7 @@ const Header: React.FC = () => {
             </a>
           ))}
           <a
-            href="https://www.sympla.com.br/evento/muriae-tech-connect-2026/3418712?algoliaID=84ace9a905b3a11fc92f3f3df06bd4b1"
+            href="https://www.even3.com.br/muriae-tech-connect-educacao-779432?even3_orig=events_eventlist"
             target="_blank"
             rel="noopener noreferrer"
             className="ml-2 px-5 py-2 rounded-full text-sm font-semibold bg-[var(--color-tiffany)] text-[var(--color-deep-blue-900)] hover:brightness-110 transition-all duration-200 shadow-md"

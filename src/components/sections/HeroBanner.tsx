@@ -101,7 +101,7 @@ const HeroBanner: React.FC<HeroBannerProps> = ({ event }) => {
         <div className="flex flex-col sm:flex-row gap-4 mt-2">
           <a
             id="hero-cta-primary"
-            href="https://www.sympla.com.br/evento/muriae-tech-connect-2026/3418712?algoliaID=84ace9a905b3a11fc92f3f3df06bd4b1"
+            href="https://www.even3.com.br/muriae-tech-connect-educacao-779432?even3_orig=events_eventlist"
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-3.5 rounded-full font-semibold text-base
